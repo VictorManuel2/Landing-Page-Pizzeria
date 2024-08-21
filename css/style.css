@@ -1,0 +1,465 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root {
+  --color-dark-main: #040302;
+  --color-dark-secondary: #111;
+  --color-dark-third: #1b1b1b;
+  --color-white: #fdfdfd;
+  --color-white-second: #bdbbb7;
+  --color-border-main: #da1010;
+  --color-boxshadow: #f04e2d;
+  --color-hover: #e41011;
+  --seccion-heigth: 6.5rem; 
+}
+html {
+  font-family: "Jost", sans-serif;
+}
+body {
+  background-color: var(--color-dark-main);
+  /* overflow-x: hidden; */
+}
+.header {
+  padding: 0 1.5rem;
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  background-color: var(--color-dark-main);
+}
+.container {
+  padding: 0 7rem;
+}
+.nav-bar {
+  height: 6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-main {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+.logo img {
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+}
+.links-option {
+  display: flex;
+  gap: 1rem;
+}
+.links-option a {
+  color: var(--color-white);
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: all 0.5s ease-in-out;
+  position: relative;
+}
+.links-option a:hover {
+  color: var(--color-border-main);
+}
+.links-option a::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  background-color: var(--color-border-main);
+  display: block;
+  transition: all 0.5s ease-in-out;
+}
+.links-option a::before {
+  content: "";
+  width: 0;
+  height: 2px;
+  background-color: var(--color-border-main);
+  display: block;
+  transition: all 0.5s ease-in-out;
+  position: absolute;
+  right: 0;
+}
+.links-option a:hover::after {
+  width: 100%;
+}
+.links-option a:hover::before {
+  width: 100%;
+}
+a {
+  text-decoration: none;
+}
+.nav-btn {
+  padding: 0.8rem;
+  border-radius: 10px;
+  background-color: var(--color-border-main);
+  cursor: pointer;
+}
+.nav-btn:hover {
+  background-color: var(--color-hover);
+}
+
+.nav-btn a {
+  color: var(--color-white);
+  cursor: pointer;
+}
+.titulo-secciones{
+  color: var(--color-white);
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align: center;
+}
+
+.secciones{
+  padding-top: var(--seccion-heigth);
+  width: 100%;
+}
+/******menu hamburguesa*****/
+.none {
+  display: none;
+}
+.menu-icon {
+  cursor: pointer;
+  display: none;
+}
+
+/************SECCION PROMOCIONES*****************/
+.cards {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+.card {
+  background-color: var(--color-dark-secondary);
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  position: relative;
+}
+.card::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25%;
+  height: 0;
+  border-top: 3px solid var(--color-border-main);
+}
+.card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 25%;
+  border-left: 3px solid var(--color-border-main); 
+}
+.card:hover {
+  transition: all 0.5s ease-in-out;
+  border-color: var(--color-border-main);
+}
+.card img {
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
+}
+.precio{
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--color-border-main);
+  border-top-right-radius: 5px;
+  color: var(--color-white);
+  padding: 1.5rem .2rem;
+  clip-path: polygon(50% 0%, 100% 0, 100% 100%, 50% 75%, 0 100%, 0% 60%, 0 0);
+}
+.contenido-pizza,
+.paquete {
+  color: var(--color-white);
+  text-align: center;
+}
+.paquete{
+  margin-bottom: 1rem;
+}
+.card-button {
+  transform: translate(-50%, 125%);
+  width: 60%;
+  border-radius: 1rem;
+  border: none;
+  background-color: #f80000;
+  color: #fff;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  text-align: center;
+  opacity: 0;
+  transition: 0.3s ease-out;
+}
+.card:hover .card-button {
+    transform: translate(-50%, 50%);
+    opacity: 1;
+}
+.card-details::before{
+	left:0;
+	bottom:0;
+	border-bottom:3px solid transparent;
+	border-left: 3px solid transparent;
+}
+.card-details::before,
+.card-details::after{
+  content: '';
+  position: absolute;
+  width:0;
+  box-sizing: border-box;
+  height: 0;
+  transition: all .8s ease;
+}
+.card-details::after{
+	right:0;
+	top:0;
+	border-top: 3px solid transparent;
+	border-right: 3px solid transparent;
+}
+.card:hover .card-details::after,
+.card:hover .card-details::before{
+   border-color: var(--color-border-main);
+   width: 100%;
+   height: 100%;
+}
+/* ************************************************* */
+
+
+/* **************SECCION ESPECIALIDADES*********/
+.subtitulo-especial{
+  color: var(--color-white);
+  text-align: center;
+  font-size: 1.3rem;
+}
+.tamanios{
+  padding: 2rem 0;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.tamanio{
+  width: 12rem;
+  background-color: var(--color-dark-third);
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid;
+  text-align: center;
+  animation: borde 8s ease-in-out infinite;
+}
+.tamanio-nombre{
+  color: var(--color-white);
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+.tamanio-precio{
+  color: var(--color-border-main);
+  font-size: 1.5rem;
+}
+
+@keyframes borde {
+  0%, 100% {
+    border-color: var(--color-dark-third);
+  }
+  50%{
+    border-color: var(--color-border-main);
+  }
+}
+
+.grid-especialidades{
+  background-image: url(../img/especialidades-bg.png);
+  position: relative;
+  background-size: cover;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+.grid-especialidades:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #1f1f1f;
+  opacity: .7;
+}
+.especialidades{
+  z-index: 2;
+  margin: 0 6rem;
+  padding: 2rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(calc(450px - 6rem), 1fr));
+  gap: 1rem;
+}
+.especialidad{
+  width: 100%;
+}
+.especialidad-nombre{
+  color: var(--color-white);
+  text-shadow: -1px -1px 0 var(--color-border-main), 1px -1px 0 var(--color-border-main), -1px 1px 0 var(--color-border-main), 1px 1px 0 var(--color-border-main);
+  font-size: 1.3rem;
+  text-transform: uppercase;
+}
+.especialidad-ingredientes{
+  color: var(--color-white);
+}
+/* ************************************************* */
+
+
+
+/* **********************SECCION ADICIONALES************************* */
+.flex-adicionales{
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 5rem 0;
+}
+.cards-adicionales{
+  background-color: var(--color-dark-secondary);
+  border-radius: 10px;
+  width: 17rem;
+  padding: 1rem;
+}
+.adicional-span{
+  background-color: var(--color-boxshadow);
+  margin: 2rem 1rem;
+  border-radius: 5px;
+  padding: .2rem .3rem;
+  color: var(--color-white);
+  font-size: .9rem;
+}
+.adicional-titulo{
+  margin: 1rem 1rem;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--color-white);
+}
+.adicional-subtitulo{
+  margin: 1rem 1rem;
+  color: var(--color-white);
+}
+/* ************************************************* */
+
+/*******************SECCION UBICAION*****************/
+.ubicacion{
+  margin-top: 1rem;
+  margin-bottom: 2.5rem;
+}
+.footer{
+  box-shadow: var(--color-white) 0 2px 5px -1px, var(--color-white) 0 1px 3px -1px;
+}
+.foot{
+  padding: 2.8rem 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.pedidos,
+.horario,
+.copyright{
+  color: var(--color-white);
+  text-align: center;
+  line-height: 1.5rem;
+  font-size: .9rem;
+}
+.copyright a{
+  color: var(--color-white-second);
+  cursor: pointer;
+}
+.copyright a:hover{
+  color: var(--color-border-main);
+  cursor: pointer;
+}
+
+.footer-social{
+  background-color: var(--color-white);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-top: 1rem;
+}
+.footer-social svg{
+  color: #0866ff;
+}
+
+@media screen and (max-width: 800px) {
+  .links {
+    display: none;
+  }
+  .menu-icon {
+    display: block;
+  }
+  .links-respons {
+    display: block;
+    position: fixed;
+    top: 6rem;
+    background-color: rgba(0, 0, 0, 0.8);
+    left: 0;
+    padding: 4rem;
+    height: 100vh;
+    width: 100vw;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+  }
+  .links-option {
+    flex-direction: column;
+    align-items: center;
+  }
+  .is-active {
+    pointer-events: auto;
+    opacity: 1;
+  }
+  .titulo-secciones{
+    font-size: 1.5rem;
+  }
+  .container{
+    padding: 0 4.5rem;
+  }
+  .ubicacion iframe{
+    width: 100%;
+    height: 450px;
+  }
+}
+@media screen and (max-width: 752px) {
+  .container{
+    padding: 0 2.5rem;
+  }
+  .cards-adicionales{
+    width: 100%;
+  }
+  .ubicacion iframe{
+    width: 100%;
+    height: 300px;
+  }
+  .especialidades{
+    margin: 1rem;
+  }
+}
+@media screen and (max-width: 460px) {
+  .especialidad-ingredientes,
+  .especialidad-nombre{
+    width: 70vw;
+  }
+  .especialidad{
+    width: 85%;
+  }
+  .subtitulo-especial{
+    font-size: 1rem;
+  }
+}
